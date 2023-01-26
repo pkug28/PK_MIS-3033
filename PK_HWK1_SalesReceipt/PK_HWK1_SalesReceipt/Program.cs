@@ -18,8 +18,38 @@ namespace PK_HWK1_SalesReceipt
             int id = Convert.ToInt32(Console.ReadLine());
 
             Receipt receipt = new Receipt(id, cog, gear);
-
+            
             receipt.PrintReceipt();
+
+            string answer;
+            do
+            {
+                Console.WriteLine($"\nAre there any more orders to be placed?");
+                answer = Console.ReadLine().ToLower();
+                if (answer[0] == 'y')
+                {
+                    Console.WriteLine("Please input the number of cogs being purchased:");
+                    cog = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Please input the nubmer of gears being purchased:");
+                    gear = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Please input the customer's ID number:");
+                    id = Convert.ToInt32(Console.ReadLine());
+
+                    Receipt newReceipt = new Receipt(id, cog, gear);
+                    newReceipt.PrintReceipt();
+
+                }
+                else
+                {
+                    break;
+                }
+            } while (answer[0] == 'y');
+
+            Console.WriteLine("Would you like to print receipts by: CustomerID (c), Day (d), or Highest Total ($)?");
+            string response = Console.ReadLine().ToLower();
+            if (response[0] == 'c');
+
+
 
             Console.ReadKey();
         }

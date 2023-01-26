@@ -6,11 +6,12 @@
         xmlns:local="clr-namespace:PK_FirstWPFApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="/keywork.jpg" Stretch="UniformToFill"/>
-        </Grid.Background>
-        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF040000" TextChanged="nameBox_TextChanged" Foreground="#FFF9F8F8" Text="Enter Your Name..."/>
+    <Grid Background="#FFA91818">
+        <TextBox x:Name="nameBox" HorizontalAlignment="Center" Margin="0,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF040000" TextChanged="nameBox_TextChanged" Foreground="#FFF9F8F8" Text="Enter Your Name..." IsManipulationEnabled="True" TextAlignment="Center"/>
+        <DatePicker x:Name="birthdatePicker" HorizontalAlignment="Center" Margin="0,114,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="birthdateTextbox" HorizontalAlignment="Center" Margin="0,93,0,0" TextWrapping="Wrap" Text="Choose your birthdate:" VerticalAlignment="Top" Height="19" Width="150" Background="Black" Foreground="#FFF1EFEF" TextAlignment="Center"/>
+        <Button x:Name="calculateAgeButton" Content="Calculate Age!" HorizontalAlignment="Center" Margin="0,217,0,0" VerticalAlignment="Top" Height="60" Width="150
+                " Click="calculateAgeButton_Click" MouseEnter="calculateAgeButton_MouseEnter" MouseLeave="calculateAgeButton_MouseLeave"/>
 
     </Grid>
 </Window>
