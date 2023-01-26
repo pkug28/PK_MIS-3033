@@ -16,6 +16,12 @@ namespace PK_HWK1_SalesReceipt
             int gear = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Please input the customer's ID number:");
             int id = Convert.ToInt32(Console.ReadLine());
+            List<int> cogs = new List<int>();
+            List<int> gears = new List<int>();
+            List<int> ids = new List<int>();
+            cogs.Add(cog);
+            gears.Add(gear);
+            ids.Add(id);
 
             Receipt receipt = new Receipt(id, cog, gear);
             
@@ -35,6 +41,10 @@ namespace PK_HWK1_SalesReceipt
                     Console.WriteLine("Please input the customer's ID number:");
                     id = Convert.ToInt32(Console.ReadLine());
 
+                    cogs.Add(cog);
+                    gears.Add(gear);
+                    ids.Add(id);
+
                     Receipt newReceipt = new Receipt(id, cog, gear);
                     newReceipt.PrintReceipt();
 
@@ -45,9 +55,20 @@ namespace PK_HWK1_SalesReceipt
                 }
             } while (answer[0] == 'y');
 
-            Console.WriteLine("Would you like to print receipts by: CustomerID (c), Day (d), or Highest Total ($)?");
+            Console.WriteLine("Would you like to print receipts by: CustomerID (c), Day (d), or Highest Total (h)?");
             string response = Console.ReadLine().ToLower();
-            if (response[0] == 'c');
+            if (response[0] == 'c')
+            {
+                Console.WriteLine("Which CustomerID?");
+                int custID = Convert.ToInt32(Console.ReadLine());
+                foreach (int i in ids)
+                {
+                    if (i == custID)
+                    {
+
+                    }
+                }
+            }
 
 
 

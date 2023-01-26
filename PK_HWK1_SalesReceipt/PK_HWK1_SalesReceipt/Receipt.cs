@@ -63,15 +63,7 @@ namespace PK_HWK1_SalesReceipt
             nets.Add(netAmount);
             List<double> totals = new List<double>();
             totals.Add(total);
-            List<int> ids = new List<int>();
-            ids.Add(id);
-            List<DateTime> saleDates = new List<DateTime>();
-            saleDates.Add(saleDate);
-            List<int> cogs = new List<int>();
-            cogs.Add(cog);
-            List<int> gears = new List<int>();
-            gears.Add(gear);
-            
+                        
             string receipt = ($"\nCustomerID: {id} \nDate: {saleDate} \nNumber of Cogs ordered: {cog} \nNumber of Gears ordered: {gear} " +
                 $"\nNet Amount: {netAmount.ToString("C2")} \nTaxes: {taxAmount.ToString("C2")} \nTotal: {total.ToString("C2")}");
             Console.WriteLine(receipt);
