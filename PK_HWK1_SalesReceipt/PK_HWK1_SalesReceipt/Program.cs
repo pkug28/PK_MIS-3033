@@ -10,7 +10,18 @@ namespace PK_HWK1_SalesReceipt
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Please input the number of cogs being purchased:");
+            int cog = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Please input the nubmer of gears being purchased:");
+            int gear = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Please input the customer's ID number:");
+            int id = Convert.ToInt32(Console.ReadLine());
 
+            Receipt receipt = new Receipt(id, cog, gear);
+
+            receipt.PrintReceipt();
+
+            Console.ReadKey();
         }
     }
 }

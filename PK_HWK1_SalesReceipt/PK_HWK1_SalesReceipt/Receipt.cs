@@ -26,8 +26,8 @@ namespace PK_HWK1_SalesReceipt
             GearQuantity = 0;
             SaleDate = DateTime.Now;
             SalesTaxPercent = 0;
-            CogPrice = 0;  
-            GearPrice = 0;
+            CogPrice = 79.99;  
+            GearPrice = 250;
         }
 
         public Receipt(int id, int cog, int gear)
@@ -36,28 +36,59 @@ namespace PK_HWK1_SalesReceipt
             CogQuantity = cog;
             GearQuantity = gear;
             SaleDate= DateTime.Now;
-            CogPrice= 0;
-            GearPrice= 0;
+            CogPrice= 79.99;
+            GearPrice= 250;
         }
 
         public double CalculateTotal()
         {
-            return 0;
+            double total = CalculateNetAmount() + CalculateTaxAmount();
+            return total;
         }
 
         public void PrintReceipt()
         {
-
+            Console.WriteLine($"CustomerID: {CustomerID} \nDate: {SaleDate} \nNumber of Cogs ordered: {CogQuantity} \nNumber of Gears ordered: {GearQuantity} " +
+                $"\nNet Amount: {CalculateNetAmount()} \nTaxes: {CalculateTaxAmount()} \nTotal: {CalculateTotal()}");
         }
 
         private double CalculateTaxAmount()
         {
-            return 0;
+            double salesTax = 0.089;
+            double taxAmount = CalculateNetAmount() * salesTax;
+            return taxAmount;
         }
 
         private double CalculateNetAmount()
         {
-            return 0;
+            double markup;
+            double cogMarkup;
+            double gearMarkup;
+            double cogTotal;
+            double gearTotal;
+            double netAmount;
+
+            
+            if (CogQuantity + GearQuantity >= 16 || CogQuantity >= 10 || GearQuantity >=10)
+            {
+                markup = 0.125;
+                cogMarkup = CogPrice + (CogPrice * markup);
+                gearMarkup = GearPrice + (GearPrice * markup);
+                cogTotal = cogMarkup * CogQuantity;
+                gearTotal = gearMarkup * CogQuantity;
+                netAmount = cogTotal + gearTotal;
+            }            
+            else
+            {
+                markup = 0.15;
+                cogMarkup = CogPrice + (CogPrice * markup);
+                gearMarkup = GearPrice + (GearPrice * markup);
+                cogTotal = cogMarkup * CogQuantity;
+                gearTotal = gearMarkup * GearQuantity;
+                netAmount = cogTotal + gearTotal;
+            }
+            
+            return netAmount;
         }
     }
 }
