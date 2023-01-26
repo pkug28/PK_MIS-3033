@@ -48,8 +48,8 @@ namespace PK_HWK1_SalesReceipt
 
         public void PrintReceipt()
         {
-            Console.WriteLine($"CustomerID: {CustomerID} \nDate: {SaleDate} \nNumber of Cogs ordered: {CogQuantity} \nNumber of Gears ordered: {GearQuantity} " +
-                $"\nNet Amount: {CalculateNetAmount()} \nTaxes: {CalculateTaxAmount()} \nTotal: {CalculateTotal()}");
+            Console.WriteLine($"\nCustomerID: {CustomerID} \nDate: {SaleDate} \nNumber of Cogs ordered: {CogQuantity} \nNumber of Gears ordered: {GearQuantity} " +
+                $"\nNet Amount: {CalculateNetAmount().ToString("C2")} \nTaxes: {CalculateTaxAmount().ToString("C2")} \nTotal: {CalculateTotal().ToString("C2")}");
         }
 
         private double CalculateTaxAmount()
@@ -69,13 +69,13 @@ namespace PK_HWK1_SalesReceipt
             double netAmount;
 
             
-            if (CogQuantity + GearQuantity >= 16 || CogQuantity >= 10 || GearQuantity >=10)
+            if ((CogQuantity + GearQuantity) >= 16 || CogQuantity >= 10 || GearQuantity >=10)
             {
                 markup = 0.125;
                 cogMarkup = CogPrice + (CogPrice * markup);
                 gearMarkup = GearPrice + (GearPrice * markup);
                 cogTotal = cogMarkup * CogQuantity;
-                gearTotal = gearMarkup * CogQuantity;
+                gearTotal = gearMarkup * GearQuantity;
                 netAmount = cogTotal + gearTotal;
             }            
             else
