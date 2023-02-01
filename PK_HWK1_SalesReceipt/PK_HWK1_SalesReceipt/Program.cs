@@ -10,22 +10,22 @@ namespace PK_HWK1_SalesReceipt
     {
         static void Main(string[] args)
         {
+            //consolidate starting code into the do-while loop
+            
             Console.WriteLine("Please input the number of cogs being purchased:");
             int cog = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Please input the nubmer of gears being purchased:");
             int gear = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Please input the customer's ID number:");
             int id = Convert.ToInt32(Console.ReadLine());
-            List<int> cogs = new List<int>();
-            List<int> gears = new List<int>();
-            List<int> ids = new List<int>();
-            cogs.Add(cog);
-            gears.Add(gear);
-            ids.Add(id);
+            List<Receipt> receipts = new List<Receipt>();
+            
 
             Receipt receipt = new Receipt(id, cog, gear);
             
             receipt.PrintReceipt();
+
+            receipts.Add(receipt);
 
             string answer;
             do
@@ -41,12 +41,11 @@ namespace PK_HWK1_SalesReceipt
                     Console.WriteLine("Please input the customer's ID number:");
                     id = Convert.ToInt32(Console.ReadLine());
 
-                    cogs.Add(cog);
-                    gears.Add(gear);
-                    ids.Add(id);
+                    
 
                     Receipt newReceipt = new Receipt(id, cog, gear);
                     newReceipt.PrintReceipt();
+                    receipts.Add(newReceipt);
 
                 }
                 else
@@ -61,11 +60,11 @@ namespace PK_HWK1_SalesReceipt
             {
                 Console.WriteLine("Which CustomerID?");
                 int custID = Convert.ToInt32(Console.ReadLine());
-                foreach (int i in ids)
+                for (int i = 0; i < receipts.Count; i++)
                 {
-                    if (i == custID)
+                    if (custID == receipt.CustomerID)
                     {
-
+                        receipt.PrintReceipt();
                     }
                 }
             }
