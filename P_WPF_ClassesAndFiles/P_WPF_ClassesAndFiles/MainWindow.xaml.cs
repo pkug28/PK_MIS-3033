@@ -73,5 +73,17 @@ namespace P_WPF_ClassesAndFiles
         {
             imageBox.Text = "";
         }
+
+        private void newToyButton_Click(object sender, RoutedEventArgs e)
+        {
+            var newToy = new Toy();
+
+            newToy.Manufacturer = manuBox.Text;
+            newToy.Name = nameBox.Text;
+            newToy.Price = double.Parse(priceBox.Text);
+            newToy.Image = imageBox.Text;
+
+            listToys.Items.Add(newToy);
+        }
     }
 }
