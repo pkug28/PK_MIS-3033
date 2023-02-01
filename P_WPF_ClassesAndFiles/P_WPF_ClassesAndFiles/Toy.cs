@@ -26,12 +26,12 @@ namespace P_WPF_ClassesAndFiles
 
         public override string ToString()
         {
-            return Name;
+            return Manufacturer + " - " + Name;
         }
 
         public string GetAisle()
         {
-            string toyAisle = Manufacturer[0].ToUpper() + Price.ToString().Replace(".","");
+            string toyAisle = Manufacturer.ToUpper()[0] + Price.ToString().Replace(".","");
 
             return toyAisle;
         }

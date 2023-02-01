@@ -6,9 +6,20 @@
         xmlns:local="clr-namespace:P_WPF_ClassesAndFiles"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <ListBox x:Name="listToys" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="600,0,0,217" SelectionChanged="listToys_SelectionChanged"/>
-        <Image x:Name="toyImage" HorizontalAlignment="Left" Height="217" Margin="600,217,0,0" VerticalAlignment="Top" Width="199"/>
+    <Grid x:Name="mainWindow">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="White" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <ListBox x:Name="listToys" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="400,0,0,217" SelectionChanged="listToys_SelectionChanged" Background="#FF292929" Foreground="#FFEDE6E6"/>
+        <Image x:Name="toyImage" HorizontalAlignment="Left" Height="217" Margin="400,217,0,0" VerticalAlignment="Top" Width="399"/>
+        <TextBox x:Name="promptBox" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Enter new toy values below..." VerticalAlignment="Top" Width="330" Height="23" Background="#FF292929" Foreground="#FFEDE6E6"/>
+        <TextBox x:Name="manuBox" HorizontalAlignment="Left" Margin="10,33,0,0" TextWrapping="Wrap" Text="Manufacturer..." VerticalAlignment="Top" Width="330" Height="23" Background="#FF292929" Foreground="#FFEDE6E6" GotFocus="manuBox_GotFocus"/>
+        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Margin="10,56,0,0" TextWrapping="Wrap" Text="Name..." VerticalAlignment="Top" Width="330" Height="23" Background="#FF292929" Foreground="#FFEDE6E6" GotFocus="nameBox_GotFocus"/>
+        <TextBox x:Name="priceBox" HorizontalAlignment="Left" Margin="10,79,0,0" TextWrapping="Wrap" Text="Price..." VerticalAlignment="Top" Width="330" Height="23" Background="#FF292929" Foreground="#FFEDE6E6" GotFocus="priceBox_GotFocus"/>
+        <TextBox x:Name="imageBox" HorizontalAlignment="Left" Margin="10,102,0,0" TextWrapping="Wrap" Text="Image URL..." VerticalAlignment="Top" Width="330" Height="23" Background="#FF292929" Foreground="#FFEDE6E6" GotFocus="imageBox_GotFocus"/>
 
     </Grid>
 </Window>

@@ -50,6 +50,28 @@ namespace P_WPF_ClassesAndFiles
             var img = new BitmapImage(uri);
             toyImage.Source = img;
 
+            MessageBox.Show($"Your selected Toy is in Aisle: {selectedToy.GetAisle()}");
+
+        }
+
+        private void manuBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            manuBox.Text = "";
+        }
+
+        private void nameBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            nameBox.Text = "";
+        }
+
+        private void priceBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            priceBox.Text = "";
+        }
+
+        private void imageBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            imageBox.Text = "";
         }
     }
 }
