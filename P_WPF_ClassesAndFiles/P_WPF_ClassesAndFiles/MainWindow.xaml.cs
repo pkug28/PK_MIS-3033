@@ -32,6 +32,10 @@ namespace P_WPF_ClassesAndFiles
             {
                 Toy t = new Toy();
                 string[] toyData = item.Split(',');
+                t.Manufacturer = toyData[0];
+                t.Name = toyData[1];
+                t.Price = Convert.ToDouble(toyData[2]);
+                t.Image = toyData[3];
                 listToys.Items.Add(t);
             }
         }
@@ -40,11 +44,11 @@ namespace P_WPF_ClassesAndFiles
         {
             Toy selectedToy = (Toy)listToys.SelectedItem;
 
-            string[] url = selectedToy[3]
+            string url = selectedToy.Image;
 
             var uri = new Uri(url);
             var img = new BitmapImage(uri);
-            
+            toyImage.Source = img;
 
         }
     }
