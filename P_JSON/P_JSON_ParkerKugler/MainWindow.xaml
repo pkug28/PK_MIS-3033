@@ -1,0 +1,15 @@
+﻿<Window x:Class="P_JSON_ParkerKugler.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:P_JSON_ParkerKugler"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Label x:Name="lblBox" Content="Choose a color" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="117"/>
+        <ComboBox x:Name="cboColors" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged"/>
+        <ListBox x:Name="resultsList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="155,0,0,0" SelectionChanged="ListBox_SelectionChanged"/>
+        <Button x:Name="resultsBtn" Content="Show Results" HorizontalAlignment="Left" Margin="32,80,0,0" VerticalAlignment="Top" Click="resultsBtn_Click"/>
+    </Grid>
+</Window>
