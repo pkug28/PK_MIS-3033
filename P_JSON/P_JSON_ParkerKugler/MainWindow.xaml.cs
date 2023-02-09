@@ -29,9 +29,7 @@ namespace P_JSON_ParkerKugler
             InitializeComponent();
 
             string json = File.ReadAllText("Mock_Data_Car_Owners.json");
-
-            
-
+                        
             carOwners = JsonConvert.DeserializeObject<List<Vehicle>>(json);
 
             foreach (var color in carOwners)
