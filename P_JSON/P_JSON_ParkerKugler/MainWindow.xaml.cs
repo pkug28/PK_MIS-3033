@@ -70,5 +70,14 @@ namespace P_JSON_ParkerKugler
         {
 
         }
+
+        private void btnExport_Click(object sender, RoutedEventArgs e)
+        {
+            string dataASJSON = JsonConvert.SerializeObject(resultsList.Items);
+
+            File.WriteAllText($"{cboColors.SelectedItem.ToString()}_Filtered_Car_Owner.json", dataASJSON);
+
+            MessageBox.Show("Saved Successfully!");
+        }
     }
 }
