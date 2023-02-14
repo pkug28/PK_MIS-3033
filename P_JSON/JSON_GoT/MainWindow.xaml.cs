@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,9 +27,13 @@ namespace JSON_GoT
         {
             InitializeComponent();
 
-            using HttpClient client = new HttpClient();
+            using (HttpClient client = new HttpClient())
+            {
+                string json = client.GetStringAsync("https://api.gameofthronesquotes.xyz/v1/random").Result;
+                string quote = JsonConvert.DeserializeObject<string>(json);
+            }
 
-
+            
 
 
         }

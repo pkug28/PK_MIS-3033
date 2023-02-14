@@ -8,28 +8,17 @@ namespace JSON_GoT
 {
     public class Quote
     {
-        public string Sentence { get; set; }
-        public Character;
+        public string sentence { get; set; }
+        public Character character { get; set; }
 
-        public House;
+        public House house { get; set; }
 
         public Quote()
         {
-            Sentence = string.Empty;
+            sentence = string.Empty;
             Character character = new Character();
-            House house = new House()
+            House house = new House();
         }
-        
-
-        /*{
-  "sentence": "The night is dark and full of terrors.",
-  "character": {
-    "name": "Melisandre",
-    "slug": "melisandre",
-    "house": {
-      "name": null,
-      "slug": null
-    }*/
   }
 
     public class Character
