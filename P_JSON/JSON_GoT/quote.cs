@@ -9,9 +9,16 @@ namespace JSON_GoT
     public class Quote
     {
         public string Sentence { get; set; }
-        public List<string> Character { get; set; }
+        public Character;
 
-        public List<string> House { get; set; }
+        public House;
+
+        public Quote()
+        {
+            Sentence = string.Empty;
+            Character character = new Character();
+            House house = new House()
+        }
         
 
         /*{
@@ -26,6 +33,16 @@ namespace JSON_GoT
   }
 
     public class Character
+    {
+       public string Name { get; set; }
+       public string Slug { get; set; }
+    }
+
+    public class House
+    {
+       public string Name { get; set; }
+       public string Slug { get; set; }
+    }
 
 
 }
