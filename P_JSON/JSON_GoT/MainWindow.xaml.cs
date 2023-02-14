@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -27,15 +28,15 @@ namespace JSON_GoT
         {
             InitializeComponent();
 
+            string json = string.Empty;
+
             using (HttpClient client = new HttpClient())
             {
-                string json = client.GetStringAsync("https://api.gameofthronesquotes.xyz/v1/random").Result;
-                string quote = JsonConvert.DeserializeObject<string>(json);
+                json = client.GetStringAsync("https://api.gameofthronesquotes.xyz/v1/random").Result;                
             }
 
-            
-
-
+            string quote = JsonConvert.DeserializeObject<string>(json);
+            var quotePieces = quote.Split(','); 
         }
     }
 }
