@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace JSON_GoT
 {
@@ -33,7 +34,9 @@ namespace JSON_GoT
        public string Slug { get; set; }
     }
 
+    public override string ToString()
+    {
+        return $"{sentences}";
+}
 
-}
-}
-}
+

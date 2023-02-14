@@ -34,9 +34,27 @@ namespace JSON_GoT
             {
                 json = client.GetStringAsync("https://api.gameofthronesquotes.xyz/v1/random").Result;                
             }
+            
+
+        }
+
+        private void btnQuote_Click(object sender, RoutedEventArgs e)
+        {
+            string json = string.Empty;
+            quotebox.Clear();
+
+            using (HttpClient client = new HttpClient())
+            {
+                json = client.GetStringAsync("https://api.gameofthronesquotes.xyz/v1/random").Result;
+            }
 
             string quote = JsonConvert.DeserializeObject<string>(json);
-            var quotePieces = quote.Split(','); 
+            var quotePieces = quote.Split(',');
+
+            Quote gotQuote = new Quote();
+
+            quotePieces[0] = gotQuote.sentence;
+            quotebox.Text = gotQuote.sentence;
         }
     }
 }
