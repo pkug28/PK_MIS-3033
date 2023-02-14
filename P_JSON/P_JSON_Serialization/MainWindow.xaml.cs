@@ -42,16 +42,43 @@ namespace P_JSON_Serialization
                 game.MetaScore = Convert.ToDouble(pieces[4]);
                 game.UserReview = pieces[5];
                 games.Add(game);
+
+                games.Add(game);
             }
 
             foreach (var game in games)
             {
+
                 if (cboPlatform.Items.Contains(game.Platform) == false)
                 {
                     cboPlatform.Items.Add(game.Platform);
                 }
 
+                
             }
+        }
+
+        private void cboPlatform_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Game game = new Game();
+            lstData.Items.Clear();
+            string selectedPlatform = cboPlatform.SelectedItem.ToString();
+
+            foreach (var item in games)
+            {
+                if (item.Platform == selectedPlatform)
+                {
+                    lstData.Items.Add(item);
+                }
+            }
+        }
+
+        private void btnExp_Click(object sender, RoutedEventArgs e)
+        {
+            string jsonOUtput = JsonConvert.SerializeObject(lstData.Items);
+
+            File.WriteAllText($"{cboPlatform.SelectedItem.ToString()}_Games.json", jsonOUtput);
+            MessageBox.Show("Saved Successfully!");
         }
     }
 }

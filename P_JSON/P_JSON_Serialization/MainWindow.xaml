@@ -6,8 +6,15 @@
         xmlns:local="clr-namespace:P_JSON_Serialization"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <ComboBox x:Name="cboPlatform" HorizontalAlignment="Left" Margin="36,84,0,0" VerticalAlignment="Top" Width="120"/>
+    <Grid Margin="10,0,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="29*"/>
+            <ColumnDefinition Width="11*"/>
+        </Grid.ColumnDefinitions>
+        <ComboBox x:Name="cboPlatform" HorizontalAlignment="Left" Margin="36,84,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboPlatform_SelectionChanged"/>
+        <Label Content="Pick a gaming console:" HorizontalAlignment="Left" Margin="36,53,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="lstData" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="210,0,0,0" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnExp" Content="Export Games" HorizontalAlignment="Left" Margin="63,132,0,0" VerticalAlignment="Top" Click="btnExp_Click"/>
 
     </Grid>
 </Window>

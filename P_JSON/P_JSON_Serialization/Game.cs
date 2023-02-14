@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace P_JSON_Serialization
 {
-    internal class Game
+    public class Game
     {
         public string Name { get; set; }
         public string Platform { get; set; }
@@ -23,6 +23,11 @@ namespace P_JSON_Serialization
             Summary = string.Empty;
             MetaScore = 0;
             UserReview = string.Empty;
+        }
+
+        public override string ToString()
+        {
+            return $"{Name} - {Platform}";
         }
     }
 }
