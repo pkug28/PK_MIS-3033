@@ -19,7 +19,7 @@ namespace JSON_Pokemon
 
         public override string ToString()
         {
-            return $"{name}";               
+            return $"{name}";
         }
     }
 
@@ -35,8 +35,8 @@ namespace JSON_Pokemon
             sprites = new Sprite();
             weight = string.Empty;
         }
-        
-}
+
+    }
 
     public class Sprite
     {
@@ -48,3 +48,5 @@ namespace JSON_Pokemon
             back_default = string.Empty;
             front_default = string.Empty;
         }
+    }
+}
