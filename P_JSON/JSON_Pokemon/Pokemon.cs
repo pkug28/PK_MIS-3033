@@ -25,15 +25,15 @@ namespace JSON_Pokemon
 
     public class Attributes
     {
-        public string height { get; set; }
+        public int height { get; set; }
         public Sprite sprites { get; set; }
-        public string weight { get; set; }
+        public int weight { get; set; }
 
         public Attributes()
         {
-            height = string.Empty;
+            height = 0;
             sprites = new Sprite();
-            weight = string.Empty;
+            weight = 0;
         }
 
     }
