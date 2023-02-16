@@ -40,21 +40,17 @@ namespace JSON_GoT
 
         private void btnQuote_Click(object sender, RoutedEventArgs e)
         {
-            string json = string.Empty;
             quotebox.Clear();
 
             using (HttpClient client = new HttpClient())
             {
-                json = client.GetStringAsync("https://api.gameofthronesquotes.xyz/v1/random").Result;
+                string json = client.GetStringAsync("https://api.gameofthronesquotes.xyz/v1/random").Result;
+
+                Quote quote = JsonConvert.DeserializeObject<Quote>(json);
+
+                quotebox.Text = $"{quote.sentence} - {quote.character}";
             }
-
-            string quote = JsonConvert.DeserializeObject<string>(json);
-            var quotePieces = quote.Split(',');
-
-            Quote gotQuote = new Quote();
-
-            quotePieces[0] = gotQuote.sentence;
-            quotebox.Text = gotQuote.sentence;
+           
         }
     }
 }

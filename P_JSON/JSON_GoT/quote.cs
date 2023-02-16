@@ -18,25 +18,33 @@ namespace JSON_GoT
         {
             sentence = string.Empty;
             Character character = new Character();
-            House house = new House();
         }
-  }
+
+        public override string ToString()
+        {
+            return $"{sentence}";
+        }
+    }
 
     public class Character
     {
-       public string Name { get; set; }
-       public string Slug { get; set; }
+        public string Name { get; set; }
+        public string Slug { get; set; }
+        House house = new House();
+
+        public override string ToString()
+        {
+            return $"{Name}";
+        }
     }
 
     public class House
     {
-       public string Name { get; set; }
-       public string Slug { get; set; }
+        public string Name { get; set; }
+        public string Slug { get; set; }
     }
 
-    public override string ToString()
-    {
-        return $"{sentences}";
+    
 }
 
 
